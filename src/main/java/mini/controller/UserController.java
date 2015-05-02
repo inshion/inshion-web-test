@@ -1,10 +1,5 @@
 package mini.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import mini.BeanFactory;
-import mini.model.User;
 import mini.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,35 +32,4 @@ public class UserController {
         return "ok";
     }
 
-    @RequestMapping(value = "t", method = RequestMethod.GET)
-    @ResponseBody
-    public String t() {
-        System.out.println("tttttt------------------");
-        return "ok";
-    }
-
-    @RequestMapping(value = "x", method = RequestMethod.GET)
-    public Map<String, Object> x() {
-
-        Map<String, Object> a = new HashMap<>();
-        a.put("a", "aaa");
-        a.put("b", "bbbb");
-        System.out.println("x-> a:" + a);
-        return a;
-    }
-
-    @RequestMapping(value = "x1", method = RequestMethod.GET)
-    public User x1() {
-
-        User a = new User();
-        a.setMoney(1234);
-        a.setName("jim");
-        System.out.println("x-> a:" + a);
-        return a;
-    }
-
-    public static void main(String[] args) {
-        UserController uc = BeanFactory.getBean(UserController.class);
-        System.out.println(uc.x());
-    }
 }
